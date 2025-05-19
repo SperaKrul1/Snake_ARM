@@ -1,48 +1,62 @@
-Snake Game na EasyMx PRO M4 (ARM)
+# Snake Game on EasyMx PRO M4 (ARM)
 
-Prosta implementacja kultowej gry „Snake” na płytce EasyMx PRO M4. Gra wykorzystuje wyświetlacz TFT ILI9341 (240×320) oraz cztero-przyciskowy joystick do sterowania wężem. Dodatkowo wprowadzono bonus, który pozwala na przenikanie przez ściany przez ograniczony czas.
+A simple implementation of the classic “Snake” game for the EasyMx PRO M4 development board.  
+The game uses a TFT ILI9341 display (240×320) and a 4-direction joystick. A special “wall-phasing” bonus lets the snake pass through walls for a short time.
 
-Funkcje
-Sterowanie joystickiem
-– ruch węża: góra, dół, lewo, prawo
+---
 
-Detekcja kolizji
-– z krawędziami planszy (ścianami)
-– z własnym ciałem
+## Features
 
-Mechanika jedzenia
-– pojawianie się losowo generowanego jedzenia
-– wydłużanie węża po zjedzeniu
+- **Joystick Control**  
+  Move the snake up, down, left, right via a 4-button joystick.
+- **Collision Detection**  
+  - Snake vs. walls  
+  - Snake vs. its own body
+- **Food Mechanics**  
+  - Randomly spawning food  
+  - Snake grows by 1 unit each time it eats
+- **“Wall-Phasing” Bonus**  
+  - Appears periodically on the board  
+  - Grants temporary ability to pass through walls
+- **Scoring System**  
+  - Current score displayed on screen  
+  - Tracks and displays **High Score**
+- **Game Over Screen**  
+  - “Game Over” message on collision  
+  - Option to restart immediately
 
-Bonus „przenikanie przez ściany”
-– pojawia się okresowo jako specjalny obiekt
-– po zebraniu wąż może przechodzić przez krawędzie planszy przez określony czas
+---
 
-System punktacji
-– aktualny wynik wyświetlany na ekranie
-– zapamiętanie i wyświetlenie najlepszego wyniku (High Score)
+## Hardware & Software Requirements
 
-Ekran końca gry
-– komunikat o porażce po kolizji
-– opcja restartu
+| Component                  | Details                                  |
+| :------------------------- | :--------------------------------------- |
+| **Development Board**      | EasyMx PRO M4 (ARM Cortex-M series)      |
+| **Display**                | TFT ILI9341, 240×320 pixels              |
+| **Input**                  | 4-direction joystick                     |
+| **Toolchain**              | ARM GCC (or other Cortex-M compatible)   |
+| **Libraries**              | • TivaWare (peripherals)  
+• GrLib (graphics)  
+• ILI9341 driver  
 
-Wymagania sprzętowe i programowe
-Sprzęt
+---
 
-Płytka: EasyMx PRO M4 (ARM)
+## Wiring
 
-Wyświetlacz: TFT ILI9341, rozdzielczość 240×320 pikseli
+1. **TFT Display (ILI9341)**  
+   - **MOSI** → SPI MOSI  
+   - **SCK**  → SPI SCK  
+   - **CS**, **DC**, **RST** → GPIO  
+2. **Joystick**  
+   - Up/Down/Left/Right → GPIO inputs with pull-ups  
 
-Joystick: 4 przyciski kierunkowe
+_(Refer to your board’s silkscreen or schematics for exact pin numbers.)_
 
-Kompilator
+---
 
-ARM GCC lub inny zgodny kompilator dla procesorów ARM Cortex-M
+## Build & Flash
 
-Biblioteki
+```bash
+# Clone this repository
+git clone https://github.com/SperaKrul1/Snake_ARM.git
 
-TivaWare (sterowanie peryferiami)
-
-GrLib (grafika)
-
-Sterownik wyświetlacza ILI9341
