@@ -57,6 +57,5 @@ _(Refer to your board’s silkscreen or schematics for exact pin numbers.)_
 ## Build & Flash
 
 ```bash
-# Clone this repository
 git clone https://github.com/SperaKrul1/Snake_ARM.git
 
